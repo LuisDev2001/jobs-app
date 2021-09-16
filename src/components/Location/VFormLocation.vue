@@ -1,21 +1,22 @@
 <template>
-  <section class="search">
-    <form class="search__form">
+  <div class="location">
+    <form class="location__form">
       <v-input
-        className="search__input"
-        placeHolderCustom="Title, companies, experti..."
-      />
-
-      <v-button className="search__button" />
+        className="location__input"
+        placeHolderCustom="City, state, zip code or country"
+      >
+        ICON
+      </v-input>
     </form>
-  </section>
+  </div>
 </template>
 
 <script>
 import VInput from "@/components/Input/VInput";
 import VButton from "@/components/Button/VButton";
+
 export default {
-  name: "VSearch",
+  name: "VFormLocation",
   components: {
     VInput,
     VButton,
