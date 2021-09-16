@@ -12,15 +12,25 @@
       :key="index"
       :radioName="options"
     />
+    <!-- System of grid and cards of job -->
+    <v-grid>
+      <v-card-job />
+      <v-card-job />
+      <v-card-job />
+      <v-card-job />
+    </v-grid>
   </div>
 </template>
 
 <script>
+import { ref } from "vue";
+//UI
 import VSearch from "@/components/Search/VSearch";
 import VCheckbox from "@/components/Input/VCheckbox";
 import VFormLocation from "@/components/Location/VFormLocation";
 import VRadioButton from "@/components/Input/VRadioButton.vue";
-import { ref } from "@vue/reactivity";
+import VGrid from "@/components/Grid/VGrid.vue";
+import VCardJob from "@/components/CardJob/VCardJob.vue";
 
 export default {
   name: "Home",
@@ -29,6 +39,8 @@ export default {
     VCheckbox,
     VFormLocation,
     VRadioButton,
+    VGrid,
+    VCardJob,
   },
   setup() {
     const optionsPredefined = ref([
