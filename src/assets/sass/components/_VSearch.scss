@@ -1,0 +1,38 @@
+.search {
+  background-image: url("~@/assets/img/backgroundImgMobile.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 138px;
+  padding: 1rem 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0 1.8125rem 0;
+  &__form {
+    background: #ffffff;
+    width: 100%;
+    padding: 0.25rem 0.3125rem;
+    border-radius: 4px;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.102);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__input {
+    width: calc(100% - 33%);
+    position: relative;
+    padding: 0 0 0 1.09375rem;
+    svg {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      bottom: 50%;
+      margin: auto;
+      color: #b9bdcf;
+    }
+  }
+  &__button {
+    width: 30%;
+  }
+}

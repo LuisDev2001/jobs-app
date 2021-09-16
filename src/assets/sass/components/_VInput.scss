@@ -1,0 +1,21 @@
+@import "../utils/_fonts.scss";
+
+input[type="text"] {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: block;
+  width: 100%;
+}
+//Search input
+.search input {
+  height: 47px;
+  padding: 0 0 0 1.2rem;
+  font-size: 1rem;
+  font-family: "Poppins-ExtraLight";
+  &::placeholder {
+    color: #b9bdcf;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+}

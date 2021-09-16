@@ -1,0 +1,16 @@
+.wrapper {
+  padding: 0 13px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 32px 26px;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  justify-items: center;
+}
