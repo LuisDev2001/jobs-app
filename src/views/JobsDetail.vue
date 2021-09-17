@@ -8,7 +8,7 @@
       <h3>How to Apply</h3>
       <p>
         Please email a copy of your resume and online portfolio to
-        wes@kasisto.com & CC eric@kasisto.com
+        <span>wes@kasisto.com</span> & CC <span>eric@kasisto.com</span>
       </p>
     </div>
 
@@ -31,4 +31,24 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.detail__how-apply {
+  margin: 0 0 2.25rem 0;
+  h3 {
+    font-family: "Poppins-SemiBold";
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    color: #b9bdcf;
+    margin: 0 0 1rem 0;
+  }
+  p {
+    line-height: 21px;
+    font-size: 0.875rem;
+    font-family: "Poppins-Regular";
+    color: #334680;
+    span {
+      color: #1e86ff;
+    }
+  }
+}
+</style>

@@ -19,5 +19,10 @@ export default {
   },
 };
 </script>
-
-<style></style>
+<style lang="scss" scoped>
+img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+}
+</style>

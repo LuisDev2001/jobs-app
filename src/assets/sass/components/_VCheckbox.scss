@@ -9,6 +9,7 @@
   &__text {
     font-size: 0.875rem;
     font-family: "Poppins-Medium";
+    cursor: pointer;
   }
   &__custom {
     width: 18px;
@@ -20,6 +21,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     svg {
       color: #ffffff;
       transition: 0.3s ease all;

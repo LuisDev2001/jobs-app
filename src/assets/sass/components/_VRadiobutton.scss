@@ -12,6 +12,7 @@
     justify-content: center;
     border-radius: 100%;
     transition: 0.3s ease all;
+    cursor: pointer;
     &::before {
       content: "";
       display: block;
@@ -42,5 +43,6 @@
     color: #334680;
     font-size: 0.875rem;
     font-family: "Poppins-Medium";
+    cursor: pointer;
   }
 }

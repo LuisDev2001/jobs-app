@@ -7,16 +7,15 @@
     <div class="card__job-information">
       <div class="card__job-name-enterprise">Kasisto</div>
       <div class="card__job-title">Front-End Software Engineer</div>
-      <div class="card__job-full-time">Full time</div>
+
+      <!-- component full time -->
+      <v-label-full-time />
+
       <section class="card__job-geo-information">
-        <div class="card__job-country">
-          <font-awesome-icon icon="globe-americas" />
-          New York
-        </div>
-        <div class="card__job-date">
-          <font-awesome-icon icon="clock" />
-          5 days ago
-        </div>
+        <!-- component country -->
+        <v-label-country />
+        <!-- component date and time -->
+        <v-label-date />
       </section>
     </div>
   </article>
@@ -25,6 +24,10 @@
 <script>
 //UI
 import VAvatarJob from "@/components/AvatarJob/VAvatarJob";
+import VLabelFullTime from "@/components/Label/VLabelFullTime";
+import VLabelCountry from "@/components/Label/VLabelCountry.vue";
+import VLabelDate from "@/components/Label/VLabelDate.vue";
+
 //Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faGlobeAmericas, faClock } from "@fortawesome/free-solid-svg-icons";
@@ -35,6 +38,9 @@ export default {
   components: {
     FontAwesomeIcon,
     VAvatarJob,
+    VLabelFullTime,
+    VLabelCountry,
+    VLabelDate,
   },
 };
 </script>

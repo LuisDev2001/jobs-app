@@ -1,0 +1,15 @@
+.detail__link-return {
+  margin: 2.0625rem 0 2.25rem 0;
+  a {
+    color: #1e86ff;
+    font-family: "Poppins-Regular";
+    text-decoration: none;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    svg {
+      margin: 0 1rem 0 0;
+      font-size: 1.125rem;
+    }
+  }
+}
