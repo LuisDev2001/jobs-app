@@ -1,6 +1,6 @@
 <template>
-  <h1 class="main__title"><b>Github</b> Jobs</h1>
-  <router-view />
+  <h1 class="main__title wrapper"><b>Github</b> Jobs</h1>
+  <router-view class="wrapper" />
 </template>
 
 <style lang="scss">

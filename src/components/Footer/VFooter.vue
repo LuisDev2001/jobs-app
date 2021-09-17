@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 footer {
+  grid-area: footer;
   text-align: center;
   margin: 30px 0 24px 0;
   p {

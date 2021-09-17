@@ -2,18 +2,22 @@
   <div class="home">
     <!-- Search component -->
     <v-search />
-    <!-- Checkbox component -->
-    <v-checkbox />
-    <!-- Location component -->
-    <v-form-location />
-    <!-- Radiobutton components -->
-    <section class="options__predefined">
-      <v-radio-button
-        v-for="(options, index) in optionsPredefined"
-        :key="index"
-        :radioName="options"
-      />
-    </section>
+
+    <!-- Sidebar component -->
+    <v-sidebar>
+      <!-- Checkbox component -->
+      <v-checkbox />
+      <!-- Location component -->
+      <v-form-location />
+      <!-- Radiobutton components -->
+      <section class="options__predefined">
+        <v-radio-button
+          v-for="(options, index) in optionsPredefined"
+          :key="index"
+          :radioName="options"
+        />
+      </section>
+    </v-sidebar>
     <!-- System of grid and cards of job -->
     <v-grid>
       <v-card-job />
@@ -37,6 +41,7 @@ import VRadioButton from "@/components/Input/VRadioButton.vue";
 import VGrid from "@/components/Grid/VGrid.vue";
 import VCardJob from "@/components/CardJob/VCardJob.vue";
 import VFooter from "@/components/Footer/VFooter.vue";
+import VSidebar from "../components/Sidebar/VSidebar.vue";
 
 export default {
   name: "Home",
@@ -48,6 +53,7 @@ export default {
     VGrid,
     VCardJob,
     VFooter,
+    VSidebar,
   },
   setup() {
     const optionsPredefined = ref([
@@ -66,10 +72,19 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  margin: 2rem 0 0 0;
+  margin: 2rem auto 0;
   .options__predefined {
     margin: 0 0 1.625rem 0;
     padding: 0 0.875rem;
+  }
+  @media screen and (min-width: 992px) {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "search search"
+      "sidebar jobs"
+      "footer footer";
   }
 }
 </style>

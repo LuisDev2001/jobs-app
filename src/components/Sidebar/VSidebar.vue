@@ -1,17 +1,18 @@
 <template>
-  <section class="grid">
+  <div class="sidebar">
     <slot></slot>
-  </section>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "VGrid",
+  name: "VSidebar",
 };
 </script>
 
 <style lang="scss" scoped>
-.grid {
-  grid-area: jobs;
+.sidebar {
+  grid-area: sidebar;
+  margin: 0 32px 0 0;
 }
 </style>
