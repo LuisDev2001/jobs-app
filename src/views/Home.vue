@@ -7,11 +7,13 @@
     <!-- Location component -->
     <v-form-location />
     <!-- Radiobutton components -->
-    <v-radio-button
-      v-for="(options, index) in optionsPredefined"
-      :key="index"
-      :radioName="options"
-    />
+    <section class="options__predefined">
+      <v-radio-button
+        v-for="(options, index) in optionsPredefined"
+        :key="index"
+        :radioName="options"
+      />
+    </section>
     <!-- System of grid and cards of job -->
     <v-grid>
       <v-card-job />

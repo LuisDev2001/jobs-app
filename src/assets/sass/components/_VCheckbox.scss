@@ -1,13 +1,16 @@
 .checkbox {
   padding: 0 0.875rem;
-  margin: 0 0 0.9375rem 0;
-  font-family: "Poppins-Medium";
+  margin: 0 0 2.1875rem 0;
   color: #334680;
   label {
     display: inline-flex;
     align-items: center;
   }
-  .checkbox__custom {
+  &__text {
+    font-size: 0.875rem;
+    font-family: "Poppins-Medium";
+  }
+  &__custom {
     width: 18px;
     height: 18px;
     border: 1px solid #b9bdcf;

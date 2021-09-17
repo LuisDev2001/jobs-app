@@ -9,7 +9,7 @@
       <span class="checkbox__custom">
         <font-awesome-icon icon="check" />
       </span>
-      <span>
+      <span class="checkbox__text">
         Full time
       </span>
     </label>

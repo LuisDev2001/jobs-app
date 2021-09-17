@@ -1,0 +1,46 @@
+.radiobutton {
+  margin: 0 0 1.125rem 0;
+  display: flex;
+  align-items: center;
+  &__custom {
+    margin: 0 0.75rem 0 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #b9bdcf;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    transition: 0.3s ease all;
+    &::before {
+      content: "";
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 100%;
+      transition: 0.3s ease all;
+      background: #ffffff;
+    }
+  }
+  input[type="radio"] {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    &:checked {
+      & ~ .radiobutton__custom {
+        border: 1px solid #1e86ff;
+        &::before {
+          background: #1e86ff;
+        }
+      }
+    }
+  }
+  label {
+    color: #334680;
+    font-size: 0.875rem;
+    font-family: "Poppins-Medium";
+  }
+}

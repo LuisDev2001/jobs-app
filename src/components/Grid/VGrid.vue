@@ -1,5 +1,5 @@
 <template>
-  <section class="grid wrapper">
+  <section class="grid">
     <slot></slot>
   </section>
 </template>

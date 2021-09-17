@@ -1,6 +1,7 @@
 <template>
   <div class="radiobutton">
     <input type="radio" name="radio-predefined" :id="radioName" />
+    <span class="radiobutton__custom"></span>
     <label :for="radioName">
       {{ radioName }}
     </label>
@@ -19,4 +20,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "~@/assets/sass/components/_VRadioButton.scss";
+</style>
