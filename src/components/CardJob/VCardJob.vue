@@ -12,10 +12,12 @@
       <div class="card__job-full-time">Full time</div>
       <section class="card__job-geo-information">
         <div class="card__job-country">
-          ICON New York
+          <font-awesome-icon icon="globe-americas" />
+          New York
         </div>
         <div class="card__job-date">
-          ICON 5 days ago
+          <font-awesome-icon icon="clock" />
+          5 days ago
         </div>
       </section>
     </div>
@@ -23,9 +25,19 @@
 </template>
 
 <script>
+//Icons
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faGlobeAmericas, faClock } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+library.add(faGlobeAmericas, faClock);
 export default {
   name: "VCardJob",
+  components: {
+    FontAwesomeIcon,
+  },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "~@/assets/sass/components/_VCardJob.scss";
+</style>

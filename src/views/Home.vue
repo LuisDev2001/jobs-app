@@ -21,6 +21,9 @@
       <v-card-job />
       <v-card-job />
     </v-grid>
+
+    <!-- footer component -->
+    <v-footer />
   </div>
 </template>
 
@@ -33,6 +36,7 @@ import VFormLocation from "@/components/Location/VFormLocation";
 import VRadioButton from "@/components/Input/VRadioButton.vue";
 import VGrid from "@/components/Grid/VGrid.vue";
 import VCardJob from "@/components/CardJob/VCardJob.vue";
+import VFooter from "@/components/Footer/VFooter.vue";
 
 export default {
   name: "Home",
@@ -43,6 +47,7 @@ export default {
     VRadioButton,
     VGrid,
     VCardJob,
+    VFooter,
   },
   setup() {
     const optionsPredefined = ref([
@@ -62,5 +67,9 @@ export default {
 <style lang="scss" scoped>
 .home {
   margin: 2rem 0 0 0;
+  .options__predefined {
+    margin: 0 0 1.625rem 0;
+    padding: 0 0.875rem;
+  }
 }
 </style>
