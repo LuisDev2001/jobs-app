@@ -26,6 +26,7 @@ export default {
   font-family: "Roboto-Regular";
   svg {
     margin: 0 7.5px 0 0;
+    font-size: 1rem;
   }
 }
 </style>

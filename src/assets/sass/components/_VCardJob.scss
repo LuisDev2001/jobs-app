@@ -18,6 +18,7 @@
   }
   &-information {
     width: calc(100% - 106px);
+    position: relative;
   }
   &-name-enterprise {
     font-size: 0.75rem;
@@ -50,5 +51,20 @@
     font-size: 12px;
     color: #b9bdcf;
     font-family: "Roboto-Regular";
+  }
+  @media screen and (min-width: 992px) {
+    height: 115px;
+    &-geo-information {
+      width: 200px;
+      position: absolute;
+      right: 0;
+      bottom: 6px;
+    }
+    .label-full-time {
+      margin: 0;
+    }
+    &-title {
+      font-size: 18px;
+    }
   }
 }

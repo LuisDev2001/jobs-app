@@ -1,5 +1,6 @@
 .detail__link-return {
   margin: 2.0625rem 0 2.25rem 0;
+  grid-area: link-return;
   a {
     color: #1e86ff;
     font-family: "Poppins-Regular";
@@ -11,5 +12,8 @@
       margin: 0 1rem 0 0;
       font-size: 1.125rem;
     }
+  }
+  @media screen and (min-width: 992px) {
+    margin: 0 0 2rem 0;
   }
 }

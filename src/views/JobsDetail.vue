@@ -1,5 +1,5 @@
 <template>
-  <div class="detail">
+  <div class="detail wrapper">
     <!-- components link return -->
     <v-link-return />
 
@@ -32,23 +32,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.detail__how-apply {
-  margin: 0 0 2.25rem 0;
-  h3 {
-    font-family: "Poppins-SemiBold";
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    color: #b9bdcf;
-    margin: 0 0 1rem 0;
-  }
-  p {
-    line-height: 21px;
-    font-size: 0.875rem;
-    font-family: "Poppins-Regular";
-    color: #334680;
-    span {
-      color: #1e86ff;
+.detail {
+  &__how-apply {
+    margin: 0 0 2.25rem 0;
+    grid-area: how-apply;
+    h3 {
+      font-family: "Poppins-SemiBold";
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      color: #b9bdcf;
+      margin: 0 0 1rem 0;
     }
+    p {
+      line-height: 21px;
+      font-size: 0.875rem;
+      font-family: "Poppins-Regular";
+      color: #334680;
+      span {
+        color: #1e86ff;
+      }
+    }
+  }
+  @media screen and (min-width: 992px) {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: 235px 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-column-gap: 77px;
+    grid-template-areas:
+      "link-return detail-job"
+      "how-apply detail-job"
+      "how-apply detail-job";
   }
 }
 </style>

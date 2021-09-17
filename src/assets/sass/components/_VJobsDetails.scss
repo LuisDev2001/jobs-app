@@ -1,4 +1,5 @@
 .detail__job {
+  grid-area: detail-job;
   &-title {
     font-family: "Roboto-Bold";
     font-size: 1.5rem;
@@ -35,5 +36,19 @@
     color: #334680;
     line-height: 24px;
     vertical-align: top;
+  }
+  @media screen and (min-width: 992px) {
+    &-title {
+      display: inline-block;
+      & ~ .label-full-time {
+        margin: 0 0 4px 1rem;
+        display: inline-flex;
+        position: relative;
+        top: -3px;
+        & ~ .label__date-time {
+          display: block;
+        }
+      }
+    }
   }
 }
