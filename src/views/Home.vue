@@ -56,3 +56,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.home {
+  margin: 2rem 0 0 0;
+}
+</style>

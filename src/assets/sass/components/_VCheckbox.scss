@@ -1,0 +1,41 @@
+.checkbox {
+  padding: 0 0.875rem;
+  margin: 0 0 0.9375rem 0;
+  font-family: "Poppins-Medium";
+  color: #334680;
+  label {
+    display: inline-flex;
+    align-items: center;
+  }
+  .checkbox__custom {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #b9bdcf;
+    border-radius: 4px;
+    margin: 0 0.75rem 0 0;
+    transition: 0.3s ease all;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      color: #ffffff;
+      transition: 0.3s ease all;
+      font-size: 0.7rem;
+      opacity: 0;
+    }
+  }
+  input[type="checkbox"] {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    &:checked {
+      & ~ .checkbox__custom {
+        border: 1px solid #1b79e6;
+        background: #1b79e6;
+        svg {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

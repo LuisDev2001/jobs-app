@@ -6,15 +6,31 @@
         name="checkbox-full-time"
         id="checkbox-full-time"
       />
-      Full time
+      <span class="checkbox__custom">
+        <font-awesome-icon icon="check" />
+      </span>
+      <span>
+        Full time
+      </span>
     </label>
   </div>
 </template>
 
 <script>
+//Icons
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+library.add(faCheck);
+
 export default {
   name: "VCheckbox",
+  components: {
+    FontAwesomeIcon,
+  },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "~@/assets/sass/components/_VCheckbox.scss";
+</style>
