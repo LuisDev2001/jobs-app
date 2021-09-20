@@ -1,7 +1,7 @@
 <template>
   <span class="label__date-time">
     <font-awesome-icon icon="clock" />
-    5 days ago
+    {{ dateValue }} days ago
   </span>
 </template>
 
@@ -13,6 +13,9 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 library.add(faClock);
 export default {
   name: "VLabelDate",
+  props: {
+    dateValue: Number,
+  },
   components: {
     FontAwesomeIcon,
   },

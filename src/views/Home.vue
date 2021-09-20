@@ -20,10 +20,15 @@
     </v-sidebar>
     <!-- System of grid and cards of job -->
     <v-grid>
-      <v-card-job />
-      <v-card-job />
-      <v-card-job />
-      <v-card-job />
+      <v-card-job
+        v-for="(job, index) in jobs.get()"
+        :key="index"
+        :companyName="job.companyName"
+        :jobTitle="job.jobName"
+        :fullTimeObj="job.fullTime"
+        :countryName="job.countryName"
+        :dateValue="job.publishDate"
+      />
     </v-grid>
 
     <!-- footer component -->

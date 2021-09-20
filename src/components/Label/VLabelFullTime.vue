@@ -1,10 +1,15 @@
 <template>
-  <div class="label-full-time">Full time</div>
+  <div class="label-full-time">
+    {{ fullTimeVal }}
+  </div>
 </template>
 
 <script>
 export default {
   name: "VLabelFullTime",
+  props: {
+    fullTimeVal: String,
+  },
 };
 </script>
 

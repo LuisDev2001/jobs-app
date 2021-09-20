@@ -1,7 +1,7 @@
 <template>
   <span class="label__country">
     <font-awesome-icon icon="globe-americas" />
-    New York
+    {{ countryName }}
   </span>
 </template>
 
@@ -14,6 +14,9 @@ library.add(faGlobeAmericas);
 
 export default {
   name: "VLabelCountry",
+  props: {
+    countryName: String,
+  },
   components: {
     FontAwesomeIcon,
   },
@@ -25,6 +28,11 @@ export default {
   font-size: 12px;
   color: #b9bdcf;
   font-family: "Roboto-Regular";
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  max-width: 95px;
   svg {
     margin: 0 7.5px 0 0;
     font-size: 1rem;

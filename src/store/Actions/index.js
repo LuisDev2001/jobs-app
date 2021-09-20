@@ -1,6 +1,10 @@
 export const actions = {
   GET_JOBS: async ({ state }) => {
     try {
+      let today = new Date();
+      let date = `${today.getFullYear()}-${today.getMonth() +
+        1}-${today.getDate()}`;
+      let fechaInicio = new Date(date).getTime();
       let objInfoJob = {
         companyName: "",
         jobName: "",
@@ -23,15 +27,22 @@ export const actions = {
       const information = await response.json();
 
       information.SearchResult.SearchResultItems.forEach((job) => {
+        let fechaFinal = new Date(
+          job.MatchedObjectDescriptor.PositionStartDate.split("T")[0]
+        ).getTime();
+
+        let diffDays = parseInt(
+          (fechaInicio - fechaFinal) / (1000 * 60 * 60 * 24)
+        );
+
         objInfoJob = {
           companyName: job.MatchedObjectDescriptor.OrganizationName,
           jobName: job.MatchedObjectDescriptor.PositionTitle,
-          isFullTime: job.MatchedObjectDescriptor.PositionSchedule[0].Name,
+          fullTime: job.MatchedObjectDescriptor.PositionSchedule,
           countryName: job.MatchedObjectDescriptor.PositionLocationDisplay,
-          publishDate: job.MatchedObjectDescriptor.PositionStartDate.split(
-            "T"
-          )[0],
+          publishDate: diffDays,
         };
+
         state.jobs.push(objInfoJob);
       });
     } catch (error) {
