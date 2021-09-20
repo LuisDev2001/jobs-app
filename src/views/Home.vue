@@ -32,7 +32,8 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { computed, onMounted, ref } from "vue";
+import { useStore } from "vuex";
 //UI
 import VSearch from "@/components/Search/VSearch";
 import VCheckbox from "@/components/Input/VCheckbox";
@@ -56,6 +57,21 @@ export default {
     VSidebar,
   },
   setup() {
+    const store = useStore();
+    //get job
+    const jobs = computed(() => ({
+      get() {
+        return store.state.jobs;
+      },
+      set(value) {
+        store.commit("LOAD_JOBS", value);
+      },
+    }));
+
+    onMounted(() => {
+      store.dispatch("GET_JOBS");
+    });
+
     const optionsPredefined = ref([
       "London",
       "Amsterdam",
@@ -65,6 +81,7 @@ export default {
 
     return {
       optionsPredefined,
+      jobs,
     };
   },
 };
