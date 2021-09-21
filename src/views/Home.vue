@@ -29,6 +29,7 @@
         :countryName="job.countryName"
         :dateValue="job.publishDate"
       />
+      <v-paginator />
     </v-grid>
 
     <!-- footer component -->
@@ -43,11 +44,12 @@ import { useStore } from "vuex";
 import VSearch from "@/components/Search/VSearch";
 import VCheckbox from "@/components/Input/VCheckbox";
 import VFormLocation from "@/components/Location/VFormLocation";
-import VRadioButton from "@/components/Input/VRadioButton.vue";
-import VGrid from "@/components/Grid/VGrid.vue";
-import VCardJob from "@/components/CardJob/VCardJob.vue";
-import VFooter from "@/components/Footer/VFooter.vue";
-import VSidebar from "../components/Sidebar/VSidebar.vue";
+import VRadioButton from "@/components/Input/VRadioButton";
+import VGrid from "@/components/Grid/VGrid";
+import VCardJob from "@/components/CardJob/VCardJob";
+import VFooter from "@/components/Footer/VFooter";
+import VSidebar from "@/components/Sidebar/VSidebar";
+import VPaginator from "@/components/Paginator/VPaginator";
 
 export default {
   name: "Home",
@@ -60,6 +62,7 @@ export default {
     VCardJob,
     VFooter,
     VSidebar,
+    VPaginator,
   },
   setup() {
     const store = useStore();

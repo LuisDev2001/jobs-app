@@ -1,5 +1,5 @@
 <template>
-  <div class="label-full-time">
+  <div class="label-full-time" v-if="fullTimeVal === 'Full time'">
     {{ fullTimeVal }}
   </div>
 </template>

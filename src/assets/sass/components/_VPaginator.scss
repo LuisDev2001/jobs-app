@@ -1,0 +1,48 @@
+.paginator {
+  display: flex;
+  align-items: center;
+  justify-self: flex-end;
+  width: auto;
+  button {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+  }
+  button,
+  &__number {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    border: 1px solid #b7bcce;
+    color: #b7bcce;
+    font-family: "Roboto-Regular";
+    margin: 0 0.75rem 0 0;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease all;
+    &:last-child {
+      margin: 0;
+    }
+    &:hover {
+      color: #1e86ff;
+      border: 1px solid #1e86ff;
+    }
+    &.active {
+      background: #1e86ff;
+      border: 1px solid #1e86ff;
+      color: #ffffff;
+    }
+  }
+  &__more-pages {
+    width: 36px;
+    height: 36px;
+    margin: 0 0.75rem 0 0;
+    color: #b7bcce;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
