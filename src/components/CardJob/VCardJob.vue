@@ -1,28 +1,30 @@
 <template>
-  <article class="card__job">
-    <v-avatar-job
-      className="card__job-image"
-      urlImg="../assets/img/logoJob.jpg"
-    />
-    <div class="card__job-information">
-      <div class="card__job-name-enterprise">{{ companyName }}</div>
-      <div class="card__job-title">{{ jobTitle }}</div>
-
-      <!-- component full time -->
-      <v-label-full-time
-        v-for="(fullTimeLabel, index) in fullTimeObj"
-        :key="index"
-        :fullTimeVal="fullTimeLabel.Name.replace('-', ' ')"
+  <router-link to="/details-job" class="link-card">
+    <article class="card__job">
+      <v-avatar-job
+        className="card__job-image"
+        urlImg="../assets/img/logoJob.jpg"
       />
+      <div class="card__job-information">
+        <div class="card__job-name-enterprise">{{ companyName }}</div>
+        <div class="card__job-title">{{ jobTitle }}</div>
 
-      <section class="card__job-geo-information">
-        <!-- component country -->
-        <v-label-country :countryName="countryName" />
-        <!-- component date and time -->
-        <v-label-date :dateValue="dateValue" />
-      </section>
-    </div>
-  </article>
+        <!-- component full time -->
+        <v-label-full-time
+          v-for="(fullTimeLabel, index) in fullTimeObj"
+          :key="index"
+          :fullTimeVal="fullTimeLabel.Name.replace('-', ' ')"
+        />
+
+        <section class="card__job-geo-information">
+          <!-- component country -->
+          <v-label-country :countryName="countryName" />
+          <!-- component date and time -->
+          <v-label-date :dateValue="dateValue" />
+        </section>
+      </div>
+    </article>
+  </router-link>
 </template>
 
 <script>

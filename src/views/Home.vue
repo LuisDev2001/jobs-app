@@ -21,7 +21,7 @@
     <!-- System of grid and cards of job -->
     <v-grid>
       <v-card-job
-        v-for="(job, index) in jobs.get()"
+        v-for="(job, index) in jobs.get()[numberIncrementDecrement - 1]"
         :key="index"
         :companyName="job.companyName"
         :jobTitle="job.jobName"
@@ -29,7 +29,15 @@
         :countryName="job.countryName"
         :dateValue="job.publishDate"
       />
-      <v-paginator />
+      <h3>Pagina {{ numberIncrementDecrement }}</h3>
+      <v-paginator
+        :listJobs="jobs.get()"
+        :FnPreviousPage="handlePrevPage"
+        :FnNextPage="handleNextPage"
+        :FnCurrentPage="handleCurrentPage"
+        :pageNumber="numberList"
+        :qtyPage="numberIncrementDecrement"
+      />
     </v-grid>
 
     <!-- footer component -->
@@ -76,10 +84,6 @@ export default {
       },
     }));
 
-    onMounted(() => {
-      store.dispatch("GET_JOBS");
-    });
-
     const optionsPredefined = ref([
       "London",
       "Amsterdam",
@@ -87,9 +91,39 @@ export default {
       "Berlin",
     ]);
 
+    const numberList = ref([0]);
+    const numberIncrementDecrement = ref(1);
+
+    const handleNextPage = () => {
+      numberList.value = [
+        ...numberList.value,
+        numberIncrementDecrement.value++,
+      ];
+      console.log("Pagina->", numberIncrementDecrement.value);
+      store.dispatch("GET_JOBS", numberIncrementDecrement.value);
+    };
+
+    const handlePrevPage = () => {
+      numberIncrementDecrement.value = numberIncrementDecrement.value - 1;
+    };
+
+    const handleCurrentPage = (index) => {
+      console.log("Click");
+      console.log(index);
+    };
+
+    onMounted(() => {
+      store.dispatch("GET_JOBS");
+    });
+
     return {
       optionsPredefined,
       jobs,
+      numberList,
+      numberIncrementDecrement,
+      handlePrevPage,
+      handleNextPage,
+      handleCurrentPage,
     };
   },
 };
