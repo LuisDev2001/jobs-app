@@ -12,7 +12,7 @@ export const actions = {
         publishDate: "",
       };
       let arrayJobs = [];
-      const URL_API = `https://data.usajobs.gov/api/Search?Page=${page}&ResultsPerPage=5`;
+      const URL_API = `https://data.usajobs.gov/api/Search?Page=${page}&ResultsPerPage=25`;
 
       const information = await Request(URL_API);
 
@@ -31,8 +31,10 @@ export const actions = {
         };
         arrayJobs.push(objInfoJob);
       });
-      state.jobs.push(arrayJobs);
-      console.log(state.jobs);
+      const divider = 5;
+      for (let index = 0; index < arrayJobs.length; index += divider) {
+        state.jobs.push(arrayJobs.slice(index, index + divider));
+      }
     } catch (error) {
       console.log(`Error: ${error}`);
     }

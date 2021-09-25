@@ -3,7 +3,7 @@
     <button
       class="paginator__prev"
       @click="FnPreviousPage"
-      v-show="qtyPage > 1"
+      v-show="qtyPage != 1"
     >
       <font-awesome-icon icon="chevron-left" />
     </button>
@@ -11,10 +11,10 @@
     <div
       v-for="(page, index) in pageNumber"
       :key="index"
-      @click="FnCurrentPage(index)"
+      @click="FnCurrentPage(index + 1)"
       :class="{
         paginator__number: true,
-        active: false,
+        active: index == qtyPage - 1,
       }"
     >
       {{ index + 1 }}
@@ -26,7 +26,11 @@
 
     <!-- <div class="paginator__number">10</div> -->
 
-    <button class="paginator__nex" @click="FnNextPage">
+    <button
+      class="paginator__nex"
+      @click="FnNextPage"
+      v-show="(qtyPage * 1) / pageNumber.length != 1"
+    >
       <font-awesome-icon icon="chevron-right" />
     </button>
   </section>
@@ -46,7 +50,6 @@ library.add(faChevronLeft, faChevronRight, faEllipsisH);
 export default {
   name: "VPaginator",
   props: {
-    listJobs: Array,
     pageNumber: Array,
     FnNextPage: Function,
     FnPreviousPage: Function,

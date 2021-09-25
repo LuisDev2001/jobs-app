@@ -29,13 +29,11 @@
         :countryName="job.countryName"
         :dateValue="job.publishDate"
       />
-      <h3>Pagina {{ numberIncrementDecrement }}</h3>
       <v-paginator
-        :listJobs="jobs.get()"
         :FnPreviousPage="handlePrevPage"
         :FnNextPage="handleNextPage"
         :FnCurrentPage="handleCurrentPage"
-        :pageNumber="numberList"
+        :pageNumber="jobs.get()"
         :qtyPage="numberIncrementDecrement"
       />
     </v-grid>
@@ -74,7 +72,7 @@ export default {
   },
   setup() {
     const store = useStore();
-    //get job
+    //get and set job
     const jobs = computed(() => ({
       get() {
         return store.state.jobs;
@@ -91,16 +89,10 @@ export default {
       "Berlin",
     ]);
 
-    const numberList = ref([0]);
     const numberIncrementDecrement = ref(1);
 
     const handleNextPage = () => {
-      numberList.value = [
-        ...numberList.value,
-        numberIncrementDecrement.value++,
-      ];
-      console.log("Pagina->", numberIncrementDecrement.value);
-      store.dispatch("GET_JOBS", numberIncrementDecrement.value);
+      numberIncrementDecrement.value = numberIncrementDecrement.value + 1;
     };
 
     const handlePrevPage = () => {
@@ -108,8 +100,7 @@ export default {
     };
 
     const handleCurrentPage = (index) => {
-      console.log("Click");
-      console.log(index);
+      numberIncrementDecrement.value = index;
     };
 
     onMounted(() => {
@@ -119,7 +110,6 @@ export default {
     return {
       optionsPredefined,
       jobs,
-      numberList,
       numberIncrementDecrement,
       handlePrevPage,
       handleNextPage,

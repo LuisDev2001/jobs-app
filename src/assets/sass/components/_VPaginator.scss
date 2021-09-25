@@ -2,6 +2,9 @@
   display: flex;
   align-items: center;
   justify-self: flex-end;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   width: auto;
   button {
     margin: 0;
@@ -16,7 +19,6 @@
     border: 1px solid #b7bcce;
     color: #b7bcce;
     font-family: "Roboto-Regular";
-    margin: 0 0.75rem 0 0;
     font-size: 0.75rem;
     display: flex;
     align-items: center;
