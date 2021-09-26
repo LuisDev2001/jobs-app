@@ -105,18 +105,15 @@ export default {
       numberIncrementDecrement.value = index;
     };
 
-    const handleFilterByFullTime = () => {
+    const handleFilterByFullTime = (event) => {
       let arrayJobsFilter = [];
       let listJobsFiltered = [];
-
       for (const jobs of jobs.value.get()) {
         let jobsFullTime = jobs.filter(
-          (job) =>
-            job.fullTime[0].Name == "Full Time" ||
-            job.fullTime[0].Name == "Full-Time"
+          (job) => job.fullTime[0].Name.replace("-", " ") == "Full Time"
         );
         //If the filterlist have 0 items inside not pushed
-        if (jobsFullTime.length !== 0) {
+        if (jobsFullTime.length != 0) {
           for (const jobFullTime of jobsFullTime) {
             arrayJobsFilter.push(jobFullTime);
           }
@@ -124,9 +121,12 @@ export default {
       }
       //Divider in 5 parts
       dividerArray(5, arrayJobsFilter, listJobsFiltered);
-
       //Update store
-      store.commit("LOAD_JOBS", listJobsFiltered);
+      if (event.target.checked) {
+        store.commit("LOAD_JOBS", listJobsFiltered);
+      } else {
+        console.log("Regresar al estado original");
+      }
     };
 
     onMounted(() => {
