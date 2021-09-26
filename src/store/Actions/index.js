@@ -1,5 +1,6 @@
 import { Request } from "@/utils/getRequest";
 import { parsePublisDate } from "@/utils/parsePublishDate";
+import { dividerArray } from "@/utils/dividerArray";
 
 export const actions = {
   GET_JOBS: async ({ state }, page = "1") => {
@@ -31,10 +32,8 @@ export const actions = {
         };
         arrayJobs.push(objInfoJob);
       });
-      const divider = 5;
-      for (let index = 0; index < arrayJobs.length; index += divider) {
-        state.jobs.push(arrayJobs.slice(index, index + divider));
-      }
+      //Divider array in five parts
+      dividerArray(5, arrayJobs, state.jobs);
     } catch (error) {
       console.log(`Error: ${error}`);
     }

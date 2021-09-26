@@ -6,7 +6,7 @@
     <!-- Sidebar component -->
     <v-sidebar>
       <!-- Checkbox component -->
-      <v-checkbox />
+      <v-checkbox @change="handleFilterByFullTime" />
       <!-- Location component -->
       <v-form-location />
       <!-- Radiobutton components -->
@@ -56,6 +56,8 @@ import VCardJob from "@/components/CardJob/VCardJob";
 import VFooter from "@/components/Footer/VFooter";
 import VSidebar from "@/components/Sidebar/VSidebar";
 import VPaginator from "@/components/Paginator/VPaginator";
+//Utils
+import { dividerArray } from "@/utils/dividerArray";
 
 export default {
   name: "Home",
@@ -103,6 +105,30 @@ export default {
       numberIncrementDecrement.value = index;
     };
 
+    const handleFilterByFullTime = () => {
+      let arrayJobsFilter = [];
+      let listJobsFiltered = [];
+
+      for (const jobs of jobs.value.get()) {
+        let jobsFullTime = jobs.filter(
+          (job) =>
+            job.fullTime[0].Name == "Full Time" ||
+            job.fullTime[0].Name == "Full-Time"
+        );
+        //If the filterlist have 0 items inside not pushed
+        if (jobsFullTime.length !== 0) {
+          for (const jobFullTime of jobsFullTime) {
+            arrayJobsFilter.push(jobFullTime);
+          }
+        }
+      }
+      //Divider in 5 parts
+      dividerArray(5, arrayJobsFilter, listJobsFiltered);
+
+      //Update store
+      store.commit("LOAD_JOBS", listJobsFiltered);
+    };
+
     onMounted(() => {
       store.dispatch("GET_JOBS");
     });
@@ -114,6 +140,7 @@ export default {
       handlePrevPage,
       handleNextPage,
       handleCurrentPage,
+      handleFilterByFullTime,
     };
   },
 };
